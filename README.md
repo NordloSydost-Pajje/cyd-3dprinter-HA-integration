@@ -117,9 +117,9 @@ That's it. No local files beyond your config and secrets needed. ESPHome fetches
 ### 3 - Usage
 
 There is 3 controls on the touch screen :
-**Swipe right-to-left** → next theme  
-**Swipe left-to-right** → next palette
-**Swipe down-to-up** → quick menu
+- **Swipe right-to-left** → next theme  
+- **Swipe left-to-right** → next palette
+- **Swipe down-to-up** → quick menu
 
 You will need to allow in HomeAssistant the device to perform action.
 Check the guide [here](https://www.home-assistant.io/integrations/esphome#allow-the-device-to-perform-home-assistant-actions)
