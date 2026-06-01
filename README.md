@@ -35,7 +35,7 @@
 |-------------|--------------|
 | ![Grid](docs/images/theme-grid.png) | ![Skeuo](docs/images/theme-skeuo.png) |
 
-> 📁 Replace the placeholder images in `docs/images/` with your own screenshots.
+> Note that some of the themes are not finished
 
 ---
 
@@ -45,56 +45,84 @@ You can use this dashboard **without cloning the repository**. ESPHome will down
 
 ### 1 — Create your device config
 
-Copy [`YOUR-PRINTER.yaml.example`](YOUR-PRINTER.yaml.example), rename it (e.g. `my-x1c.yaml`) and fill in your printer entities:
+Go into you ESPHome Builder, create a blank config, copy the exemple bellow and fill in your printer entities:
 
 ```yaml
+# ─────────────────────────────────────────────────────────────────────────────
+# CYD 3D Printer Dashboard — User configuration file
+# Copy this file, rename it, and fill in your own values.
+#
+# No clone needed — the full dashboard is loaded from GitHub automatically.
+# Source: https://github.com/maelremrem/cyd-3dprinter-HA-integration
+# ─────────────────────────────────────────────────────────────────────────────
+
 substitutions:
-  device_name: my-cyd-dashboard
-  friendly_name: My 3D Print Dashboard
-  short_name: X1C
+  device_name: cyd-3d-dashboard       # ESPHome device name (no spaces)
+  friendly_name: CYD 3D Dashboard     # Displayed in Home Assistant
+  short_name: X1C                     # Short label shown on the display
 
+  # ── API / OTA / Wi-Fi credentials ─────────────────────────────────────────
+  # Leave as !secret and define these in your secrets.yaml or put them here
+  ha_api_key: !secret ha_api_key
+  #or
+  #ha_api_key: "" #<-- you can put them here
+  ota_password: !secret ota_password
+  #or
+  #ota_password: ""
+  wifi_ssid: !secret wifi_ssid
+  wifi_password: !secret wifi_password
+
+  # ── Home Assistant printer entities ────────────────────────────────────────
+  # Replace each value with your own entity IDs from the Bambu Lab integration
+  # (or any other printer integration exposing similar sensors)
   printer_progress_entity: sensor.YOUR_PRINTER_print_progress
-  printer_nozzle_entity:   sensor.YOUR_PRINTER_nozzle_temperature
-  printer_bed_entity:      sensor.YOUR_PRINTER_bed_temperature
-  printer_time_entity:     sensor.YOUR_PRINTER_remaining_time
-  printer_layer_entity:    sensor.YOUR_PRINTER_current_layer
-  printer_total_layer_entity: sensor.YOUR_PRINTER_total_layers
-  printer_state_entity:    sensor.YOUR_PRINTER_print_stage
+  printer_nozzle_entity: sensor.YOUR_PRINTER_nozzle_temperature
+  printer_bed_entity: sensor.YOUR_PRINTER_bed_temperature
+  printer_time_entity: sensor.YOUR_PRINTER_remaining_time
+  printer_layer_entity: sensor.YOUR_PRINTER_current_layer
+  printer_total_layer_entity: sensor.YOUR_PRINTER_total_layer_count
+  printer_state_entity: sensor.YOUR_PRINTER_print_status
   printer_start_time_entity: sensor.YOUR_PRINTER_start_time
-  printer_end_time_entity:   sensor.YOUR_PRINTER_end_time
-  printer_power_entity:    sensor.YOUR_PRINTER_power
-  quick_action_entity:     switch.YOUR_PRINTER
-  ha_clock_entity:         sensor.time
+  printer_end_time_entity: sensor.YOUR_PRINTER_end_time
+  printer_power_entity: sensor.YOUR_PRINTER_power
+  quick_action_title: "Turn on printer"
+  quick_action_entity: switch.YOUR_PRINTER_switch
 
+  ha_clock_entity: sensor.time        # Standard HA time sensor (HH:MM)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Remote package — downloads the full dashboard firmware from GitHub.
+# ESPHome caches it locally and refreshes once per day.
+# ─────────────────────────────────────────────────────────────────────────────
 packages:
-  dashboard:
-    url: https://github.com/maelr/cyd-bambu-dashboard
-    file: packages/cyd-dashboard.yaml
-    ref: main
-    refresh: 1d
+  pins: github://maelremrem/cyd-3dprinter-HA-integration/packages/cyd-dashboard-pins.yaml@main
+  colors: github://maelremrem/cyd-3dprinter-HA-integration/packages/cyd-dashboard-colors.yaml@main
+  dashboard: github://maelremrem/cyd-3dprinter-HA-integration/packages/cyd-dashboard.yaml@main
 ```
 
-### 2 — Create your `secrets.yaml`
-
-```yaml
-wifi_ssid: "YourNetwork"
-wifi_password: "YourPassword"
-ha_api_key: "your-esphome-api-key"   # esphome generate-secrets
-ota_password: "your-ota-password"
-wifi_ap_password: "your-ap-password"
-```
-
-### 3 — Flash
+### 2 — Flash
 
 ```bash
 esphome run my-x1c.yaml
 ```
+Or directly in HomeAssistant via ESPHome Builder
+
+I recommand that you use the USB cable for flashing.
 
 That's it. No local files beyond your config and secrets needed. ESPHome fetches the dashboard code and all defaults from GitHub, caches it locally, and refreshes once per day.
 
-> **Tip:** To pin to a specific version instead of always tracking `main`, replace `ref: main` with a tag or commit SHA, e.g. `ref: v1.0.0`.
-
 ---
+
+### 3 - Usage
+
+There is 3 controls on the touch screen :
+**Swipe right-to-left** → next theme  
+**Swipe left-to-right** → next palette
+**Swipe down-to-up** → quick menu
+
+You will need to allow in HomeAssistant the device to perform action.
+Check the guide [here](https://www.home-assistant.io/integrations/esphome#allow-the-device-to-perform-home-assistant-actions)
 
 ## 🛒 Hardware
 
@@ -117,43 +145,6 @@ That's it. No local files beyond your config and secrets needed. ESPHome fetches
 
 ---
 
-## 🚀 Installation
-
-
-### 3 — Configure your printer entities
-
-Open `packages/cyd-x1c-substitutions.yaml` and update the entity IDs to match your Bambu Lab integration:
-
-```yaml
-printer_progress_entity: sensor.YOUR_PRINTER_print_progress
-printer_nozzle_entity:   sensor.YOUR_PRINTER_nozzle_temperature
-printer_bed_entity:      sensor.YOUR_PRINTER_bed_temperature
-printer_time_entity:     sensor.YOUR_PRINTER_remaining_time
-printer_layer_entity:    sensor.YOUR_PRINTER_current_layer
-printer_total_layer_entity: sensor.YOUR_PRINTER_total_layers
-printer_state_entity:    sensor.YOUR_PRINTER_print_stage
-printer_start_time_entity: sensor.YOUR_PRINTER_start_time
-printer_end_time_entity:   sensor.YOUR_PRINTER_end_time
-printer_power_entity:    sensor.YOUR_PRINTER_power
-quick_action_entity:     switch.YOUR_PRINTER   # optional power switch
-```
-
-You can find your entity IDs in Home Assistant under **Settings → Devices & Services → Bambu Lab**.
-
-### 4 — Flash the device
-
-```bash
-# First flash (USB)
-esphome run cyd-x1c.yaml
-
-# Subsequent updates (OTA)
-esphome run cyd-x1c.yaml
-```
-
-
-
----
-
 ## 🎨 Themes & Palettes
 
 Themes and palettes are **independent** — you can mix any theme with any palette.
@@ -169,10 +160,9 @@ Themes and palettes are **independent** — you can mix any theme with any palet
 | 7 | Modern Grid |
 | 8 | Skeuomorphic |
 
-**Swipe right-to-left** → next theme  
-**Swipe left-to-right** → next palette
-
 Both are exposed as `select` entities in Home Assistant (`CYD X1C Dashboard Theme` / `Palette`) and persist across reboots.
+
+You can create you own colors with the ESPHome substitutions (don't forget to comment-out the package)
 
 ---
 
@@ -189,6 +179,12 @@ After flashing, the device will appear automatically in Home Assistant (ESPHome 
 
 ---
 
+## 3D Printing
+
+I have used [this model](https://makerworld.com/en/models/2787810-cyd-desk-buddy-for-bambu-lab-home-assistant)
+
+---
+
 ## 🔧 Troubleshooting
 
 | Symptom | Fix |
@@ -198,9 +194,3 @@ After flashing, the device will appear automatically in Home Assistant (ESPHome 
 | No printer data | Check entity IDs in `cyd-x1c-substitutions.yaml` match your HA integration |
 | Theme not restored after reboot | ESPHome saves theme index to NVS — first reboot after flash resets to default |
 | WiFi fallback AP active | Connect to `CYD-X1C-Fallback` with `wifi_ap_password` from `secrets.yaml` |
-
----
-
-## 📄 License
-
-MIT — see [LICENSE](LICENSE) for details.
