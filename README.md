@@ -2,8 +2,6 @@
 
 > A feature-rich ESPHome dashboard for the **Cheap Yellow Display (CYD)** that monitors your 3D printer in real time through Home Assistant.
 
-![Banner](docs/images/banner.png)
-
 ---
 
 ## ✨ Features
@@ -25,15 +23,15 @@
 
 | Orbit | Tactical | Blueprint |
 |-------|----------|-----------|
-| ![Orbit](docs/images/theme-orbit.png) | ![Tactical](docs/images/theme-tactical.png) | ![Blueprint](docs/images/theme-blueprint.png) |
+| ![Orbit](imgs/orbit.jpeg) | ![Tactical](imgs/tactical.jpeg) | ![Blueprint](imgs/blueprint.jpeg) |
 
 | Monitor | Brutal | Apple |
 |---------|--------|-------|
-| ![Monitor](docs/images/theme-monitor.png) | ![Brutal](docs/images/theme-brutal.png) | ![Apple](docs/images/theme-apple.png) |
+| ![Monitor](imgs/monitor.jpeg) | ![Brutal](imgs/brutal.jpeg) | ![Apple](imgs/apple.jpeg) |
 
 | Modern Grid | Skeuomorphic |
 |-------------|--------------|
-| ![Grid](docs/images/theme-grid.png) | ![Skeuo](docs/images/theme-skeuo.png) |
+| ![Grid](imgs/grid.jpeg) | ![Skeuo](imgs/skeuomorphic.jpeg) |
 
 > Note that some of the themes are not finished
 
