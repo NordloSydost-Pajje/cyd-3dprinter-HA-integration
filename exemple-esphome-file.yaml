@@ -75,9 +75,9 @@ substitutions:
 # ESPHome caches it locally and refreshes once per day.
 # ─────────────────────────────────────────────────────────────────────────────
 packages:
-  dashboard:
+  pins:
     url: https://github.com/maelremrem/cyd-3dprinter-HA-integration
-    file: packages/cyd-dashboard.yaml
+    file: packages/cyd-dashboard-pins.yaml
     ref: main
     refresh: 1d
   colors:
@@ -85,3 +85,9 @@ packages:
     file: packages/cyd-dashboard-colors.yaml
     ref: main
     refresh: 1d
+  dashboard:
+    url: https://github.com/maelremrem/cyd-3dprinter-HA-integration
+    file: packages/cyd-dashboard.yaml
+    ref: main
+    refresh: 1d
+
