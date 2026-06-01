@@ -1,0 +1,92 @@
+  # ── Color palettes ──────────────────────────────────────────────────────────
+
+  # Mockup / Tactical (default)
+  color_mockup_bg: 0x5A6F86
+  color_mockup_card: 0x121A2B
+  color_mockup_card_soft: 0x1A2640
+  color_mockup_text: 0xEAF0FF
+  color_mockup_muted: 0x8DA3C7
+  color_mockup_accent: 0x3DDC97
+  color_mockup_hot: 0xFF8A3D
+
+  # Brutal — bold and vibrant
+  color_brutal_bg: 0xFFE9D2
+  color_brutal_card: 0xFFF8EF
+  color_brutal_ink: 0x111111
+  color_brutal_accent: 0xFF6B35
+  color_brutal_secondary: 0x2EC4B6
+  color_brutal_hot: 0xFFD166
+  color_brutal_cold: 0x3A86FF
+
+  # Orbit — modern dark with cyan/orange
+  color_orbit_bg: 0x162543
+  color_orbit_panel: 0x101F38
+  color_orbit_panel_soft: 0x192C4D
+  color_orbit_text: 0xEDF5FF
+  color_orbit_muted: 0x9AB1D8
+  color_orbit_accent: 0x4CC9F0
+  color_orbit_hot: 0xFF7C43
+  color_orbit_cold: 0x55B6FF
+
+  # Blueprint — soft pastels
+  color_blueprint_bg: 0xF5F8FD
+  color_blueprint_panel: 0xFFFFFF
+  color_blueprint_ink: 0x0E223D
+  color_blueprint_line: 0xC8D8EE
+  color_blueprint_line_strong: 0x7EA0CB
+  color_blueprint_accent: 0xFF5F2E
+  color_blueprint_accent_2: 0x2A9D8F
+
+  # Apple-like — clean minimalist
+  color_apple_bg: 0xF7FAFF
+  color_apple_panel: 0xFFFFFF
+  color_apple_ink: 0x0B1E38
+  color_apple_text: 0x222533
+  color_apple_muted: 0x8B95A5
+  color_apple_accent: 0x007AFF
+  color_apple_hot: 0xFF3B30
+  color_apple_cold: 0x34C759
+
+  # Modern Grid — neon lime & cyan on dark
+  color_grid_bg: 0x1B1E23
+  color_grid_panel: 0x15181D
+  color_grid_panel_soft: 0x1D2128
+  color_grid_text: 0xF5F7FB
+  color_grid_muted: 0xA5AFBF
+  color_grid_accent: 0xB5FF3D
+  color_grid_accent_2: 0x3DD6FF
+  color_grid_hot: 0xFF8F5A
+  color_grid_cold: 0x66B8FF
+
+  # Skeuomorphic — metallic with bevel
+  color_skeuo_metal_a: 0x6F7886
+  color_skeuo_metal_b: 0x505764
+  color_skeuo_metal_c: 0x3F4550
+  color_skeuo_panel: 0x2D323B
+  color_skeuo_text: 0xF7FBFF
+  color_skeuo_muted: 0xB9C4D6
+  color_skeuo_accent: 0x4DD9FF
+  color_skeuo_hot: 0xFF9A6B
+  color_skeuo_cold: 0x7FC9FF
+
+  # Monitor — warm Bambu-inspired dark UI
+  color_monitor_bg: 0x1E161B
+  color_monitor_card: 0x2A1F26
+  color_monitor_card_soft: 0x352830
+  color_monitor_line: 0x5B4652
+  color_monitor_text: 0xF6DCE8
+  color_monitor_muted: 0xC8ABB8
+  color_monitor_accent: 0xF29D59
+  color_monitor_hot: 0xFFB46E
+  color_monitor_cold: 0x8FD68C
+  color_monitor_success: 0x88CE87
+  color_monitor_on_accent: 0x2A1F26
+
+  # Active palette — initialized to Mockup defaults, updated at runtime
+  color_bg: 0x5A6F86
+  color_card: 0x121A2B
+  color_card_soft: 0x1A2640
+  color_text: 0xEAF0FF
+  color_muted: 0x8DA3C7
+  color_accent: 0x3DDC97
+  color_hot: 0xFF8A3D
