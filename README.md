@@ -2,6 +2,8 @@
 
 > A feature-rich ESPHome dashboard for the **Cheap Yellow Display (CYD)** that monitors your 3D printer in real time through Home Assistant.
 
+![banner](imgs/dualscreen.jpeg)
+
 ---
 
 ## ✨ Features
@@ -21,7 +23,17 @@
 
 ## 📸 Preview
 
-Screenshots for the available themes can be added under an `imgs/` folder.
+| Orbit | Tactical | Blueprint |
+|-------|----------|-----------|
+| ![Orbit](imgs/orbit.jpeg) | ![Tactical](imgs/tactical.jpeg) | ![Blueprint](imgs/blueprint.jpeg) |
+
+| Monitor | Brutal | Apple |
+|---------|--------|-------|
+| ![Monitor](imgs/monitor.jpeg) | ![Brutal](imgs/brutal.jpeg) | ![Apple](imgs/apple.jpeg) |
+
+| Modern Grid | Skeuomorphic |
+|-------------|--------------|
+| ![Grid](imgs/grid.jpeg) | ![Skeuo](imgs/skeuomorphic.jpeg) |
 
 > Note that some of the themes are not finished.
 
@@ -109,6 +121,10 @@ There are 3 controls on the touch screen:
 You need to allow the ESPHome device to perform Home Assistant actions. See the [Home Assistant ESPHome actions guide](https://www.home-assistant.io/integrations/esphome#allow-the-device-to-perform-home-assistant-actions).
 
 The quick menu can call `homeassistant.toggle` for `quick_action_entity`, so it works best with on/off entities such as `switch.*`.
+
+Quick menu details:
+
+![Quick menu](imgs/quick.jpeg)
 
 ## 🛒 Hardware
 
