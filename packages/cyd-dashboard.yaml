@@ -146,7 +146,7 @@ esp32:
 
 
 logger:
-    level: VERBOSE
+    level: DEBUG
     initial_level: INFO
 
 preferences:
