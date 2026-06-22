@@ -319,10 +319,8 @@ display:
     dc_pin: ${pin_tft_dc}
     invert_colors: false
     color_order: bgr
-    byte_order: big_endian
     data_rate: 20MHz
     auto_clear_enabled: false
-    color_depth: 16
     transform:
       swap_xy: ${display_swap_xy}
       mirror_x: ${display_mirror_x}
