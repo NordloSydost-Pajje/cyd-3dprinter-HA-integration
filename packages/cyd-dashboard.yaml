@@ -1896,9 +1896,16 @@ script:
               return std::string("--");
             }
 
-            if (power.size() > 2 && power.substr(power.size() - 2) == ".0") {
-              power.resize(power.size() - 2);
-            }
+            try {
+              float val = std::stof(power);
+              char buf[16];
+              if (val == (int)val) {
+                snprintf(buf, sizeof(buf), "%d", (int)val);
+              } else {
+                snprintf(buf, sizeof(buf), "%.1f", val);
+              }
+              power = std::string(buf);
+            } catch (...) {}
 
             std::string unit = id(printer_power_unit).state;
             if (!unit.empty() && unit != "unknown" && unit != "unavailable") {
@@ -2039,9 +2046,16 @@ script:
               return std::string("--");
             }
 
-            if (power.size() > 2 && power.substr(power.size() - 2) == ".0") {
-              power.resize(power.size() - 2);
-            }
+            try {
+              float val = std::stof(power);
+              char buf[16];
+              if (val == (int)val) {
+                snprintf(buf, sizeof(buf), "%d", (int)val);
+              } else {
+                snprintf(buf, sizeof(buf), "%.1f", val);
+              }
+              power = std::string(buf);
+            } catch (...) {}
 
             std::string unit = id(printer_power_unit).state;
             if (!unit.empty() && unit != "unknown" && unit != "unavailable") {
@@ -2216,9 +2230,16 @@ script:
               return std::string("--");
             }
 
-            if (power.size() > 2 && power.substr(power.size() - 2) == ".0") {
-              power.resize(power.size() - 2);
-            }
+            try {
+              float val = std::stof(power);
+              char buf[16];
+              if (val == (int)val) {
+                snprintf(buf, sizeof(buf), "%d", (int)val);
+              } else {
+                snprintf(buf, sizeof(buf), "%.1f", val);
+              }
+              power = std::string(buf);
+            } catch (...) {}
 
             std::string unit = id(printer_power_unit).state;
             if (!unit.empty() && unit != "unknown" && unit != "unavailable") {
@@ -2671,6 +2692,17 @@ script:
             if (power.empty() || power == "unknown" || power == "unavailable") {
               return std::string("--");
             }
+
+            try {
+              float val = std::stof(power);
+              char buf[16];
+              if (val == (int)val) {
+                snprintf(buf, sizeof(buf), "%d", (int)val);
+              } else {
+                snprintf(buf, sizeof(buf), "%.1f", val);
+              }
+              power = std::string(buf);
+            } catch (...) {}
 
             std::string unit = id(printer_power_unit).state;
             if (!unit.empty() && unit != "unknown" && unit != "unavailable") {
