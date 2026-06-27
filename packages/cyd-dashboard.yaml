@@ -288,7 +288,7 @@ light:
     restore_mode: ALWAYS_OFF
 
 display:
-  - platform: ili9xxx
+  - platform: mipi_spi
     id: tft
     spi_id: lcd
     model: ILI9341
@@ -305,6 +305,10 @@ display:
     dimensions:
       width: ${display_w}
       height: ${display_h}
+      offset_width: 0
+      offset_height: 0
+      pad_width: 0
+      pad_height: 0
     update_interval: never
 
 touchscreen:
